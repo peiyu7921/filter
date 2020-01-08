@@ -24,8 +24,8 @@
         mounted() {
             var that = this
             chrome.storage.sync.get(['keys', 'switchKey'], function (result) {
-                that.keys = result.keys
-                that.switchKey = result.switchKey
+                if (result.keys) that.keys = result.keys
+                if (result.switchKey) that.switchKey = result.switchKey
             })
         },
         methods: {
